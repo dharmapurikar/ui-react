@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 // local dependencies
 import './App.css'
+import TodosList from '../TodosList/TodosList';
 
 export default class App extends Component {
     constructor(...args){
@@ -35,7 +36,7 @@ export default class App extends Component {
     render() {
         const { todos } = this.state;
         return (
-            <ul>
+            <TodosList>
                 {_.map(todos, (todo, id) =>
                     <li key={id} 
                         className={todo.completed ? 'completed' : ''}
@@ -43,8 +44,8 @@ export default class App extends Component {
                     >
                         {todo.description}
                     </li>
-                    )}
-            </ul>
+                )}
+            </TodosList>
         );
     }
 }
